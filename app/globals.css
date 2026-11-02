@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap');
 :root{--ink:#082432;--muted:#687782;--purple:#c49a4e;--lav:#f8f3e8;--line:#e9e6f1;--white:#fff}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:'DM Sans',sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 64px));margin:0 auto}
 .nav{height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f0eef5}.brand{display:flex;align-items:center;gap:9px;font-family:Manrope,sans-serif;font-size:21px;font-weight:800;letter-spacing:-1px}.brand-mark{display:grid;place-items:center;width:31px;height:31px;background:var(--purple);color:#fff;border-radius:9px;font-size:19px;font-weight:800}.brand-light{font-weight:500;color:#8e89a2;margin-left:-8px}.nav-links{display:flex;align-items:center;gap:34px;font-size:13px;font-weight:600;color:#555168}.nav-links a:hover{color:var(--purple)}.login{border:1px solid #ded9ed;padding:11px 18px;border-radius:9px;color:var(--ink)!important}
@@ -25,3 +25,15 @@
 .demo-caption{display:flex;justify-content:space-between;gap:15px;margin-top:13px;font-size:9px;color:#9993a5}.demo-caption b{color:#c49a4e}
 @media(max-width:600px){.customer-section{padding:60px 0}.client-nav{padding:14px}.client-navlinks{display:none}.client-menu{display:block;color:#c49a4e}.client-hero{padding:25px 15px 18px}.client-hero-text h3{font-size:23px}.client-search{grid-template-columns:1fr 1fr}.client-search>div:nth-child(3){display:none}.client-search button{min-height:32px}.client-listings{padding:20px 13px}.client-cards{grid-template-columns:1fr 1fr;gap:8px}.client-property:last-child{display:none}.property-art{height:85px}.client-list-head h4{font-size:14px}.client-list-head>span{font-size:7px}.client-demo-footer{padding:12px;gap:10px;flex-direction:column}.demo-caption{flex-direction:column;gap:5px;font-size:8px}.browser-bar>span{padding:4px 8px}
 }
+
+/* Versus CRM — assinatura visual serifada V + wordmark */
+.nav .brand{gap:8px;align-items:center;font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:600;letter-spacing:-.7px;color:#082432}
+.nav .brand .brand-mark{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;background:transparent;color:#c49a4e;border-radius:0;font-family:'Cormorant Garamond',serif;font-size:51px;font-weight:600;line-height:.72;letter-spacing:-5px;margin:0 2px 0 0;padding:0}
+.nav .brand .brand-word{font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:600;letter-spacing:-.8px;color:#082432;margin:0}
+.nav .brand .brand-word span{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:1px;color:#c49a4e;margin-left:3px;vertical-align:baseline}
+.dash-top .mini-brand{display:flex;align-items:center;gap:5px;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#082432}
+.dash-top .mini-brand b{display:inline;background:transparent;color:#c49a4e;border-radius:0;padding:0;margin:0;font:600 31px/.75 'Cormorant Garamond',serif;letter-spacing:-4px}
+.dash-top .mini-brand strong{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:-.5px;color:#082432}
+.dash-top .mini-brand strong span{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:1px;color:#c49a4e;margin-left:2px}
+.closing .closing-mark{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;letter-spacing:-3px;background:transparent;color:#c49a4e;border:1px solid #c49a4e;border-radius:50%;width:48px;height:48px}
+@media(max-width:600px){.nav .brand{font-size:25px}.nav .brand .brand-mark{font-size:43px}.nav .brand .brand-word{font-size:25px}.nav .brand .brand-word span{font-size:10px}}
