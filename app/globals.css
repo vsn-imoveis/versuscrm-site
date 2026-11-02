@@ -133,3 +133,12 @@ body{color:#082432;background:#fff}
 .hero-reference .device-caption{color:#d5aa53}
 @media(max-width:900px){.hero-reference{padding:55px 5vw 30px;min-height:760px}.hero-reference .device-stage{width:100%;min-height:500px}.hero-reference .device-laptop{left:8%;width:82%}.hero-reference .device-tablet{width:30%;left:0;bottom:40px}.hero-reference .device-phone{width:19%;right:0;top:35px}}
 @media(max-width:600px){.hero-reference{padding:38px 18px 20px;min-height:620px}.hero-reference h1{font-size:43px}.hero-reference .lead{font-size:15px}.hero-reference .device-stage{min-height:365px;margin-top:15px}.hero-reference .device-laptop{left:5%;width:89%;top:30px}.hero-reference .device-tablet{width:30%;bottom:20px}.hero-reference .device-phone{width:21%;min-width:0;top:15px}.hero-reference .device-caption{font-size:6px}}
+
+/* Separação de marca: Versus CRM no site, VSN Imóveis como exemplo dentro dos dispositivos */
+.nav .brand .brand-mark{font-family:'Cormorant Garamond',serif!important;color:#d5aa53!important;font-size:64px!important;letter-spacing:-7px!important;background:transparent!important;border:0!important}
+.nav .brand .brand-word{font-family:'Cormorant Garamond',serif!important;font-size:35px!important;font-weight:600!important;letter-spacing:-.5px!important;color:#f7f4ee!important}
+.nav .brand .brand-word span{font-family:'DM Sans',sans-serif!important;font-size:13px!important;letter-spacing:2px!important;color:#d5aa53!important}
+.site-logo b.client-vsn,.tablet-brand b.client-vsn,.phone-brand b.client-vsn{font-family:Manrope,sans-serif!important;font-weight:800!important;font-size:clamp(13px,1.6vw,24px)!important;letter-spacing:-1.2px!important;color:#d5aa53!important}
+.site-logo b.client-vsn{font-size:clamp(15px,1.8vw,28px)!important;letter-spacing:-1.4px!important}
+.tablet-brand b.client-vsn{font-size:25px!important}
+.phone-brand b.client-vsn{font-size:21px!important}
