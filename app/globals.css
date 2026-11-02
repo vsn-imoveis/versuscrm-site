@@ -37,3 +37,79 @@
 .dash-top .mini-brand strong span{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:1px;color:#c49a4e;margin-left:2px}
 .closing .closing-mark{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;letter-spacing:-3px;background:transparent;color:#c49a4e;border:1px solid #c49a4e;border-radius:50%;width:48px;height:48px}
 @media(max-width:600px){.nav .brand{font-size:25px}.nav .brand .brand-mark{font-size:43px}.nav .brand .brand-word{font-size:25px}.nav .brand .brand-word span{font-size:10px}}
+
+/* Complete landing redesign: visual identity inspired by premium VSN website */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
+:root{--ink:#082432;--muted:#657681;--purple:#c9a257;--lav:#f7f3eb;--line:#e7e2d8}
+body{color:#082432;background:#fff}
+.nav{height:94px;border-bottom:1px solid #e9e5dc}
+.nav .brand{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;gap:8px}
+.nav .brand .brand-mark{background:none;color:#c9a257;font:600 52px/.7 'Cormorant Garamond',serif;letter-spacing:-5px;width:auto;height:auto}
+.nav .brand .brand-word{font:600 32px 'Cormorant Garamond',serif;letter-spacing:-.5px;color:#082432}
+.nav .brand .brand-word span{font:500 12px 'DM Sans',sans-serif;letter-spacing:1px;color:#c9a257}
+.nav-links{color:#314451}.login{border-color:#c9a257;border-radius:30px;padding:12px 22px}
+.hero{grid-template-columns:.88fr 1.12fr;min-height:690px;padding-top:65px;padding-bottom:85px;gap:30px}
+.hero h1{font-size:clamp(48px,5.4vw,76px);letter-spacing:-3.5px;line-height:1.02}
+.hero h1 em,.section-head h2 em,.pricing h2 em,.closing h2 em{color:#c9a257}
+.eyebrow,.section-kicker{color:#b28a43;letter-spacing:2px}
+.button.primary{background:#c9a257;color:#071f2a;border-radius:30px;padding:17px 25px}
+.text-link{color:#082432}
+.trust{color:#647681}.trust-v{font:600 30px 'Cormorant Garamond',serif;color:#c9a257}
+.ticker{background:#082432;color:#e8d5a7}
+.features{padding-top:100px;padding-bottom:105px}
+.feature{border-color:#e7e2d8;border-radius:14px}
+.feature-icon{color:#b28a43;background:#f5ead4;border-radius:10px}
+.customer-section{background:#f6f3ed;padding:100px 0 110px}
+.customer-section .section-head{margin-bottom:42px}
+.device-stage{position:relative;min-height:650px;margin:0 auto;max-width:1160px}
+.device-laptop{position:absolute;left:2%;top:55px;width:76%;z-index:1}
+.device-screen{background:#fff;border:8px solid #102b38;border-bottom-width:12px;border-radius:17px 17px 7px 7px;overflow:hidden;box-shadow:0 30px 75px #0b28351c}
+.site-top{height:58px;display:flex;align-items:center;padding:0 3%;gap:18px;border-bottom:1px solid #e9e5dc;font-size:clamp(7px,.8vw,12px);color:#183242}
+.site-logo{display:flex;align-items:center;gap:7px;color:#092432;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,1.7vw,25px);font-weight:700}
+.site-logo b{font-size:1.8em;color:#c9a257;letter-spacing:-.12em}
+.site-logo small{display:block;font:500 .35em 'DM Sans',sans-serif;letter-spacing:.22em;color:#b28a43}
+.site-top nav{margin:auto;white-space:nowrap}.site-contact{background:#c9a257;padding:9px 14px;border-radius:20px;color:#081f2b;white-space:nowrap}
+.site-hero{height:250px;background:linear-gradient(90deg,#061f2c 0%,#082432d9 42%,#08243210 100%),linear-gradient(0deg,#071f2b70,#071f2b10),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85') center 48%/cover;position:relative;display:flex;align-items:center;padding:5%}
+.site-hero-copy{color:#fff;max-width:55%}
+.site-hero-copy small{font-size:clamp(6px,.7vw,10px);letter-spacing:.22em;color:#d8b66d;font-weight:700}
+.site-hero-copy h2{font:800 clamp(22px,3vw,43px)/1.02 Manrope,sans-serif;letter-spacing:-.04em;margin:13px 0}
+.site-hero-copy h2 em{font-style:normal;color:#d8b66d}
+.site-hero-copy p{font-size:clamp(7px,.9vw,12px);line-height:1.5;max-width:90%}
+.site-search{position:absolute;left:5%;right:5%;bottom:-32px;background:#fff;border-radius:10px;padding:13px;display:flex;align-items:center;gap:8px;box-shadow:0 10px 25px #001d2b20;font-size:clamp(7px,.75vw,11px)}
+.site-search span{border:1px solid #e4e7e9;border-radius:5px;padding:10px;flex:1;white-space:nowrap}
+.site-search b{background:#c9a257;color:#082432;padding:10px 13px;border-radius:20px;white-space:nowrap}
+.site-featured{padding:55px 4% 25px}.site-featured h3{font:700 clamp(16px,1.5vw,24px) Manrope,sans-serif;margin:0 0 16px}
+.site-photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.site-photo{height:90px;border-radius:7px;background-size:cover;background-position:center}
+.photo1{background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=450&q=80')}
+.photo2{background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=450&q=80')}
+.photo3{background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=450&q=80')}
+.laptop-base{height:15px;margin:0 -2%;background:linear-gradient(#d8dce0,#8c969d 55%,#c5c9cd);border-radius:0 0 30px 30px}
+.device-tablet{position:absolute;right:2%;bottom:50px;width:32%;z-index:3;padding:10px;background:#132d39;border-radius:20px;box-shadow:0 25px 60px #08243240;transform:rotate(2deg)}
+.tablet-screen{background:#fff;border-radius:12px;overflow:hidden;padding:15px}
+.tablet-brand{display:flex;align-items:center;font:700 13px 'Cormorant Garamond',serif;gap:4px}
+.tablet-brand b{color:#c9a257;font-size:26px}
+.tablet-photo{height:115px;margin:12px -15px;background:linear-gradient(90deg,#08243255,#08243200),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=700&q=80') center/cover}
+.tablet-screen h3{font:700 clamp(14px,1.5vw,22px)/1.1 Manrope,sans-serif;margin:8px 0}
+.tablet-screen h3 em{font-style:normal;color:#c9a257}.tablet-screen p{font-size:9px;color:#687782}
+.tablet-cta{display:inline-block;background:#c9a257;border-radius:20px;padding:7px 12px;font-size:9px}
+.device-phone{position:absolute;right:0;top:10px;width:19%;min-width:145px;z-index:4;padding:7px;background:#102b37;border-radius:29px;box-shadow:0 20px 45px #08243235;transform:rotate(-3deg)}
+.phone-screen{background:#fff;border-radius:22px;overflow:hidden;padding:12px 9px 16px;min-height:340px}
+.phone-notch{width:42%;height:8px;border-radius:10px;background:#102b37;margin:0 auto 12px}
+.phone-brand{display:flex;align-items:center;gap:3px;font:700 11px 'Cormorant Garamond',serif}.phone-brand b{font-size:23px;color:#c9a257}.phone-brand i{margin-left:auto;font-style:normal}
+.phone-photo{height:110px;margin:10px -9px;background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500&q=80') center/cover}
+.phone-screen>small{font-size:6px;letter-spacing:.13em;color:#b28a43;font-weight:700}
+.phone-screen h3{font:700 19px/1.02 Manrope,sans-serif;margin:7px 0}.phone-screen h3 em{font-style:normal;color:#c9a257}
+.phone-search{font-size:8px;border:1px solid #e7e2d8;padding:9px;border-radius:20px}
+.phone-mini-card{display:flex;gap:7px;margin-top:10px;font-size:7px}.phone-mini-card>div{width:35px;height:30px;background:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=120&q=80') center/cover;border-radius:4px}
+.phone-mini-card small{display:block;color:#87919a;margin-top:3px}
+.device-caption{position:absolute;bottom:0;width:100%;text-align:center;color:#9a7a3b;font-size:10px;font-weight:700;letter-spacing:2px}
+.demo-caption{color:#687782}
+.pricing{background:#082432}
+.price-card{border-radius:16px;border:1px solid #e9d8b3}
+.price{color:#c9a257}
+.dark-button{background:#c9a257;color:#082432;border-radius:30px}
+.closing{padding-top:95px;padding-bottom:95px}.closing-mark{font-family:'Cormorant Garamond',serif;color:#c9a257;border-color:#c9a257}
+.footer{border-top:1px solid #e7e2d8}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:45px}.device-stage{min-height:540px}.device-laptop{width:82%;left:0}.device-tablet{width:33%;right:1%;bottom:45px}.device-phone{width:20%;right:-1%;top:0}.site-top nav{display:none}}
+@media(max-width:600px){.nav{height:75px}.nav-links a:not(.login){display:none}.hero{min-height:auto;padding-bottom:35px}.hero h1{font-size:47px}.device-stage{min-height:390px;margin:25px -12px 0}.device-laptop{width:92%;top:45px}.device-screen{border-width:5px}.site-top{height:33px}.site-hero{height:140px}.site-search{bottom:-20px;padding:6px;gap:4px}.site-search span{padding:5px}.site-search b{padding:6px}.site-featured{padding-top:35px}.site-photo{height:45px}.laptop-base{height:8px}.device-tablet{width:34%;bottom:25px;padding:5px;border-radius:12px}.tablet-screen{padding:8px}.tablet-photo{height:55px;margin:8px -8px}.tablet-screen h3{font-size:10px}.tablet-screen p{font-size:6px}.tablet-cta{font-size:6px;padding:4px 6px}.device-phone{min-width:90px;width:23%;padding:4px;border-radius:17px}.phone-screen{min-height:220px;padding:7px 5px 9px;border-radius:13px}.phone-notch{height:4px;margin-bottom:6px}.phone-brand{font-size:7px}.phone-brand b{font-size:15px}.phone-photo{height:60px;margin:6px -5px}.phone-screen h3{font-size:12px}.phone-search{font-size:6px;padding:5px}.phone-mini-card{display:none}.device-caption{font-size:7px;letter-spacing:1px}.customer-section{padding:60px 0}.features{padding:60px 0}.section-head h2{font-size:36px}}
