@@ -1,11 +1,4 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "Versus CRM | Seu negócio imobiliário em outro nível",
-  description: "A plataforma completa para corretores e pequenas imobiliárias: imóveis, leads, clientes e seu próprio site em um só lugar.",
-};
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-BR"><body>{children}</body></html>;
-}
+export const metadata: Metadata = { metadataBase: new URL("https://versuscrm-site.vercel.app"), title: "Versus CRM | Site imobiliário e CRM para corretores", description: "Tenha seu próprio site imobiliário com sua marca e organize leads, imóveis e oportunidades em um CRM para corretores. Conheça o Versus CRM.", keywords: ["CRM imobiliário","site para corretor de imóveis","CRM para corretores","site imobiliário","gestão de leads imobiliários","sistema para imobiliária","marketing imobiliário"], openGraph: {type:"website",locale:"pt_BR",url:"https://versuscrm-site.vercel.app",siteName:"Versus CRM",title:"Versus CRM | Seu site imobiliário + CRM",description:"Sua marca na internet e seus contatos organizados em uma plataforma para corretores.",images:["/site/img/vitrine-site.jpg"]}, twitter:{card:"summary_large_image",title:"Versus CRM | Site imobiliário e CRM",description:"Seu site imobiliário com sua marca e CRM para organizar oportunidades.",images:["/site/img/vitrine-site.jpg"]}, robots:{index:true,follow:true} };
+export default function RootLayout({children}:{readonly children:React.ReactNode}){return <html lang="pt-BR"><body>{children}</body></html>}
