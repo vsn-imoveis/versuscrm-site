@@ -1,52 +1,39 @@
-const features = [
-  { n: "01", title: "Seus imóveis organizados", text: "Cadastre, gerencie e atualize sua carteira sem planilhas espalhadas." },
-  { n: "02", title: "Leads no seu controle", text: "Acompanhe oportunidades, contatos e negociações em um fluxo simples." },
-  { n: "03", title: "Seu site imobiliário", text: "Apresente seus imóveis com um site profissional conectado à sua operação." },
-  { n: "04", title: "Tudo em um só lugar", text: "Clientes, imóveis e rotina comercial reunidos em uma plataforma." },
+const modules = [
+  { n: "01", title: "Cadastro e gestão de imóveis", text: "Cadastre venda e locação, fotos, valores, características, localização e publicação." },
+  { n: "02", title: "Contatos e proprietários", text: "Organize compradores, interessados e proprietários em uma base integrada." },
+  { n: "03", title: "Lançamentos imobiliários", text: "Cadastre empreendimentos na planta, construtoras e seus dados." },
+  { n: "04", title: "Condomínios e catálogo", text: "Reaproveite informações de condomínios e características no cadastro." },
+  { n: "05", title: "Leads do seu site", text: "Receba solicitações de interessados vinculadas ao seu negócio." },
+  { n: "06", title: "Área do proprietário", text: "O proprietário pode enviar imóvel e solicitar alterações, sujeitas à análise da imobiliária." },
+  { n: "07", title: "Aprovação e notificações", text: "Revise solicitações, aprove ou recuse e acompanhe notificações do sistema." },
+  { n: "08", title: "Seu site com sua marca", text: "Configure nome, logo, cores, contatos, redes sociais, capa e informações da imobiliária." },
 ];
 
+const sampleHomes = [
+  { type: "APARTAMENTO · VENDA", name: "Apartamento com varanda", place: "Vila Andrade · São Paulo", price: "R$ 680.000", details: "82 m²　 3 quartos　 2 vagas", image: "home-a" },
+  { type: "CASA · VENDA", name: "Casa com espaço e conforto", place: "Jardim Prudência · São Paulo", price: "R$ 920.000", details: "145 m²　 3 quartos　 2 vagas", image: "home-b" },
+  { type: "APARTAMENTO · LOCAÇÃO", name: "Apartamento moderno", place: "Santo Amaro · São Paulo", price: "R$ 3.500/mês", details: "68 m²　 2 quartos　 1 vaga", image: "home-c" },
+];
+
+function CustomerSiteDemo() {
+  return <div className="customer-demo">
+    <div className="browser-bar"><div className="browser-dots"><i/><i/><i/></div><span>www.suaimobiliaria.com.br</span><b>↗</b></div>
+    <div className="client-nav"><div className="client-brand"><span className="client-logo">S</span><div><b>SUA IMOBILIÁRIA</b><small>SEU LUGAR. SEU NOVO COMEÇO.</small></div></div><div className="client-navlinks"><span>Comprar</span><span>Alugar</span><span>Lançamentos</span><span>Contato</span></div><span className="client-menu">☰</span></div>
+    <div className="client-hero"><div className="client-hero-text"><small>ENCONTRE O LUGAR QUE COMBINA COM VOCÊ</small><h3>Seu próximo capítulo<br/>começa <em>em casa.</em></h3><p>Encontre imóveis que acompanham seus planos e seu jeito de viver.</p></div><div className="client-search"><div><small>QUERO</small><b>Comprar　⌄</b></div><div><small>ONDE?</small><b>São Paulo, SP　⌄</b></div><div><small>TIPO DE IMÓVEL</small><b>Todos　⌄</b></div><button>⌕ Buscar imóveis</button></div></div>
+    <div className="client-listings"><div className="client-list-head"><div><small>SELEÇÃO ESPECIAL</small><h4>Imóveis em destaque</h4></div><span>Ver todos os imóveis　↗</span></div><div className="client-cards">{sampleHomes.map((h,i)=><article className="client-property" key={h.name}><div className={"property-art "+h.image}><span>{i===0?"APARTAMENTO":i===1?"CASA":"LIVING"}</span><b>♡</b></div><div className="client-property-info"><small>{h.type}</small><h5>{h.name}</h5><p>{h.place}</p><strong>{h.price}</strong><div className="property-details">{h.details}</div></div></article>)}</div></div>
+    <div className="client-demo-footer"><span>✦ SUA IMOBILIÁRIA</span><span>Atendimento personalizado · WhatsApp · Redes sociais</span></div>
+  </div>
+}
+
 export default function Home() {
-  return (
-    <main>
-      <nav className="nav wrap">
-        <a className="brand" href="#"><span className="brand-mark">V</span> versus<span className="brand-light">crm</span></a>
-        <div className="nav-links"><a href="#recursos">Recursos</a><a href="#planos">Planos</a><a className="login" href="#entrar">Entrar ↗</a></div>
-      </nav>
-
-      <section className="hero wrap">
-        <div className="hero-copy">
-          <div className="eyebrow"><span className="dot" /> CRM feito para o mercado imobiliário</div>
-          <h1>Seu negócio imobiliário.<br/><em>Do seu jeito.</em></h1>
-          <p className="lead">Menos planilhas. Mais negócios. Tenha seus imóveis, clientes e oportunidades organizados em uma plataforma criada para quem vive o mercado imobiliário.</p>
-          <div className="hero-actions"><a className="button primary" href="#planos">Quero conhecer o Versus <span>↗</span></a><a className="text-link" href="#recursos">Descubra como funciona ↓</a></div>
-          <div className="trust"><div className="avatars"><span>V</span><span>+</span><span>✓</span></div><span>Feito para corretores que querem crescer</span></div>
-        </div>
-        <div className="hero-visual" aria-label="Prévia ilustrativa do painel Versus CRM">
-          <div className="visual-glow"/>
-          <div className="dash-window">
-            <div className="dash-top"><div className="mini-brand"><b>V</b> versus<span>crm</span></div><div className="dash-user"><span className="user-dot">C</span> Meu escritório <span>⌄</span></div></div>
-            <div className="dash-body"><aside><div className="side-active">▦　 Visão geral</div><div>⌂　 Imóveis</div><div>♧　 Contatos</div><div>↗　 Oportunidades</div><div>⚙　 Configurações</div><div className="side-bottom">VERSUS CRM</div></aside>
-              <div className="dash-content"><div className="dash-heading"><div><small>SEGUNDA-FEIRA, 02 DE NOVEMBRO</small><h3>Bom dia! 👋</h3><p>Veja o resumo do seu negócio.</p></div><button>＋ Novo imóvel</button></div>
-              <div className="stats"><div><small>Imóveis ativos</small><strong>24</strong><span className="positive">↗ Sua carteira</span></div><div><small>Novos contatos</small><strong>18</strong><span className="positive">↗ Este mês</span></div><div><small>Oportunidades</small><strong>07</strong><span className="neutral">Em andamento</span></div></div>
-              <div className="chart-card"><div className="chart-title">Visão das oportunidades <span>Últimos 30 dias⌄</span></div><div className="bars"><i style={{height:"34%"}}/><i style={{height:"48%"}}/><i style={{height:"40%"}}/><i style={{height:"64%"}}/><i style={{height:"53%"}}/><i style={{height:"76%"}}/><i style={{height:"61%"}}/><i style={{height:"92%"}}/><i style={{height:"70%"}}/><i style={{height:"100%"}}/><i style={{height:"81%"}}/><i style={{height:"88%"}}/></div><div className="chart-labels"><span>05 out</span><span>12 out</span><span>19 out</span><span>26 out</span></div></div>
-              <div className="bottom-card"><span>◷　Atividades recentes</span><div><b className="activity-dot"/> Novo lead recebido <small>há 12 min</small></div><div><b className="activity-dot purple"/> Imóvel atualizado <small>há 35 min</small></div></div>
-            </div></div>
-          </div>
-          <div className="floating-tag tag-one">✦　Tudo conectado</div><div className="floating-tag tag-two">↗　Sua próxima venda começa aqui</div>
-        </div>
-      </section>
-
-      <section className="ticker"><div>IMÓVEIS <b>✳</b> CLIENTES <b>✳</b> OPORTUNIDADES <b>✳</b> SEU SITE <b>✳</b> SEU NEGÓCIO <b>✳</b> IMÓVEIS <b>✳</b> CLIENTES <b>✳</b></div></section>
-
-      <section className="features wrap" id="recursos">
-        <div className="section-kicker">A ferramenta certa muda o jogo</div><div className="section-head"><h2>Você cuida dos negócios.<br/><em>A gente cuida da organização.</em></h2><p>Uma rotina mais leve e profissional, do primeiro contato até a próxima chave entregue.</p></div>
-        <div className="feature-grid">{features.map((f)=><article className="feature" key={f.n}><span className="feature-n">{f.n}</span><div className="feature-icon">{["⌂","↗","▤","✳"][Number(f.n)-1]}</div><h3>{f.title}</h3><p>{f.text}</p><a href="#planos">Saiba mais <span>↗</span></a></article>)}</div>
-      </section>
-
-      <section className="pricing" id="planos"><div className="wrap pricing-inner"><div><div className="section-kicker light-kicker">Simples para começar. Completo para crescer.</div><h2>Seu próximo capítulo<br/>começa <em>com o Versus.</em></h2><p>Profissionalize sua operação sem complicar sua rotina.</p></div><div className="price-card"><span className="plan-label">VERSUS CRM · PLANO PROFISSIONAL</span><div className="price">R$ 100<span>/ mês</span></div><ul><li>✓ Gestão de até 100 imóveis</li><li>✓ CRM para contatos e oportunidades</li><li>✓ Site profissional integrado</li><li>✓ Até 35 fotos por imóvel</li></ul><a className="button dark-button" href="#entrar">Quero começar <span>↗</span></a><small>Sem complicação. Cancele quando quiser.</small></div></div></section>
-
-      <section className="closing wrap" id="entrar"><div className="closing-mark">V</div><h2>Seu mercado. Sua marca.<br/><em>Seu próximo nível.</em></h2><a className="button primary" href="mailto:contato@versuscrm.com.br?subject=Quero%20conhecer%20o%20Versus%20CRM">Fale com a gente <span>↗</span></a></section>
-      <footer className="footer wrap"><a className="brand" href="#"><span className="brand-mark">V</span> versus<span className="brand-light">crm</span></a><span>© 2026 Versus CRM. Feito para quem faz acontecer.</span><a href="#top">Voltar ao topo ↑</a></footer>
-    </main>
-  );
+  return <main id="top">
+    <nav className="nav wrap"><a className="brand" href="#top"><span className="brand-mark">V</span> versus<span className="brand-light">crm</span></a><div className="nav-links"><a href="#plataforma">Plataforma</a><a href="#seu-site">Seu site</a><a href="#planos">Planos</a><a className="login" href="#entrar">Acessar CRM ↗</a></div></nav>
+    <section className="hero wrap"><div className="hero-copy"><div className="eyebrow"><span className="dot"/> Plataforma imobiliária para corretores e pequenas imobiliárias</div><h1>Seu imobiliário,<br/><em>mais profissional.</em></h1><p className="lead">Cadastre imóveis, organize contatos, divulgue lançamentos e tenha um site imobiliário com a sua marca — tudo conectado ao seu painel.</p><div className="hero-actions"><a className="button primary" href="#planos">Conheça o Versus CRM <span>↗</span></a><a className="text-link" href="#seu-site">Veja o site do cliente ↓</a></div><div className="trust"><div className="avatars"><span>V</span><span>+</span><span>✓</span></div><span>Ferramentas pensadas para a rotina imobiliária</span></div></div>
+      <div className="hero-visual"><div className="visual-glow"/><div className="dash-window"><div className="dash-top"><div className="mini-brand"><b>V</b> versus<span>crm</span></div><div className="dash-user"><span className="user-dot">C</span> Meu escritório <span>⌄</span></div></div><div className="dash-body"><aside><div className="side-active">▦　 Visão geral</div><div>⌂　 Imóveis</div><div>♧　 Contatos</div><div>▤　 Lançamentos</div><div>♧　 Proprietários</div><div>⚙　 Configurações</div><div className="side-bottom">VERSUS CRM</div></aside><div className="dash-content"><div className="dash-heading"><div><small>PAINEL DA IMOBILIÁRIA</small><h3>Seu negócio em um só lugar</h3><p>Gerencie sua operação imobiliária.</p></div><button>＋ Cadastrar imóvel</button></div><div className="stats"><div><small>Carteira de imóveis</small><strong>100</strong><span className="positive">Venda e locação</span></div><div><small>Fotos por imóvel</small><strong>35</strong><span className="positive">Galeria completa</span></div><div><small>Seu site</small><strong>↗</strong><span className="neutral">Integrado ao CRM</span></div></div><div className="chart-card"><div className="chart-title">Atalhos da operação <span>ACESSO RÁPIDO</span></div><div className="quick-actions"><span>＋　Cadastrar imóvel</span><span>♧　Novo contato</span><span>▤　Lançamento</span><span>⌂　Condomínio</span></div></div><div className="bottom-card"><span>◷　Solicitações recentes</span><div><b className="activity-dot"/> Novo interessado pelo site <small>Lead</small></div><div><b className="activity-dot purple"/> Alteração de proprietário <small>Para revisar</small></div></div></div></div></div><div className="floating-tag tag-one">✦　Site com a sua identidade</div><div className="floating-tag tag-two">↗　CRM + site integrados</div></div></section>
+    <section className="ticker"><div>IMÓVEIS <b>✳</b> CONTATOS <b>✳</b> LANÇAMENTOS <b>✳</b> PROPRIETÁRIOS <b>✳</b> SEU SITE <b>✳</b> IMÓVEIS <b>✳</b> CONTATOS <b>✳</b></div></section>
+    <section className="features wrap" id="plataforma"><div className="section-kicker">O que você realmente encontra na plataforma</div><div className="section-head"><h2>As ferramentas da sua<br/><em>rotina imobiliária.</em></h2><p>Recursos que estamos construindo e conectando para ajudar você a administrar sua carteira e seu atendimento.</p></div><div className="feature-grid">{modules.map((f)=><article className="feature" key={f.n}><span className="feature-n">{f.n}</span><div className="feature-icon">{["⌂","♧","▤","▦","↗","♙","✓","✳"][Number(f.n)-1]}</div><h3>{f.title}</h3><p>{f.text}</p></article>)}</div><p className="feature-note">* Recursos apresentados conforme as funções implementadas no projeto. Alguns fluxos, como assinatura e ativação automática, ainda dependem de finalização.</p></section>
+    <section className="customer-section" id="seu-site"><div className="wrap"><div className="section-kicker">E o site que seus clientes vão ver?</div><div className="section-head"><h2>O seu CRM também<br/><em>vira vitrine.</em></h2><p>Um site imobiliário com a identidade da sua empresa, conectado aos imóveis cadastrados no Versus CRM.</p></div><CustomerSiteDemo/><div className="demo-caption"><span><b>Prévia conceitual</b> · Exemplo ilustrativo de um site de cliente</span><span>Logo, cores, fotos, contatos e domínio personalizados.</span></div></div></section>
+    <section className="pricing" id="planos"><div className="wrap pricing-inner"><div><div className="section-kicker light-kicker">Um plano direto para começar</div><h2>Estruture seu negócio<br/>com <em>Versus CRM.</em></h2><p>Tenha gestão e presença digital em uma única solução.</p></div><div className="price-card"><span className="plan-label">PLANO ESSENCIAL</span><div className="price">R$ 100<span>/ mês</span></div><ul><li>✓ Até 100 imóveis cadastrados</li><li>✓ Até 35 fotos por imóvel</li><li>✓ Gestão de contatos e proprietários</li><li>✓ Cadastro de lançamentos</li><li>✓ Site imobiliário integrado</li><li>✓ Configurações com a identidade da empresa</li></ul><a className="button dark-button" href="#entrar">Quero contratar <span>↗</span></a><small>Consulte as condições de ativação.</small></div></div></section>
+    <section className="closing wrap" id="entrar"><div className="closing-mark">V</div><h2>Seu negócio merece<br/><em>uma plataforma própria.</em></h2><a className="button primary" href="mailto:contato@versuscrm.com.br?subject=Quero%20conhecer%20o%20Versus%20CRM">Fale com a equipe <span>↗</span></a></section><footer className="footer wrap"><a className="brand" href="#top"><span className="brand-mark">V</span> versus<span className="brand-light">crm</span></a><span>© 2026 Versus CRM. Tecnologia para o mercado imobiliário.</span><a href="#top">Voltar ao topo ↑</a></footer>
+  </main>;
 }
