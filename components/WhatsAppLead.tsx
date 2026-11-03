@@ -40,8 +40,10 @@ export default function WhatsAppLead() {
     setSubmitting(true);
     setError("");
 
-    const message = `Olá! Meu nome é ${name}. Meu WhatsApp é ${phone}. Meu e-mail é ${email}. Tenho interesse em: ${interest}. Quero saber mais sobre o Versus CRM.`;
+    const message = `Olá! Tenho interesse em ${interest}. Gostaria de saber mais sobre o Versus CRM e suas funcionalidades.`;
     const whatsappUrl = `https://wa.me/5511974116234?text=${encodeURIComponent(message)}`;
+    // Abre uma nova aba imediatamente para evitar bloqueio de pop-up pelo navegador.
+    const whatsappTab = window.open("about:blank", "_blank");
 
     try {
       const response = await fetch("https://versuscrm.vercel.app/api/public-lead", {
@@ -60,9 +62,14 @@ export default function WhatsAppLead() {
         throw new Error(result?.error || "Não foi possível registrar seus dados. Tente novamente.");
       }
       // Abre o WhatsApp somente depois de confirmar que o lead foi salvo no CRM.
-      window.location.href = whatsappUrl;
+      if (whatsappTab) {
+        whatsappTab.location.href = whatsappUrl;
+      } else {
+        window.location.href = whatsappUrl;
+      }
       closeModal();
     } catch (err) {
+      if (whatsappTab && !whatsappTab.closed) whatsappTab.close();
       setError(err instanceof Error ? err.message : "Falha ao registrar. Tente novamente.");
       setSubmitting(false);
     }
