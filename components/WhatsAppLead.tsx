@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function WhatsAppLead() {
   const [open, setOpen] = useState(false);
@@ -9,6 +9,21 @@ export default function WhatsAppLead() {
   const [interest, setInterest] = useState("Conhecer o Versus CRM");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const openFromCta = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const anchor = target?.closest("a");
+      const label = anchor?.textContent?.trim().toLocaleLowerCase("pt-BR");
+      if (label && ["quero o meu", "solicitar demonstração", "falar no whatsapp"].includes(label)) {
+        event.preventDefault();
+        setOpen(true);
+        document.body.style.overflow = "hidden";
+      }
+    };
+    document.addEventListener("click", openFromCta);
+    return () => document.removeEventListener("click", openFromCta);
+  }, []);
 
   function openModal() {
     setOpen(true);
