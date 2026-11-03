@@ -6,6 +6,7 @@ export default function WhatsAppLead() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [interest, setInterest] = useState("Conhecer o Versus CRM");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -39,7 +40,7 @@ export default function WhatsAppLead() {
     setSubmitting(true);
     setError("");
 
-    const message = `Olá! Meu nome é ${name}. Meu WhatsApp é ${phone}. Tenho interesse em: ${interest}. Quero saber mais sobre o Versus CRM.`;
+    const message = `Olá! Meu nome é ${name}. Meu WhatsApp é ${phone}. Meu e-mail é ${email}. Tenho interesse em: ${interest}. Quero saber mais sobre o Versus CRM.`;
     const whatsappUrl = `https://wa.me/5511974116234?text=${encodeURIComponent(message)}`;
 
     try {
@@ -49,6 +50,7 @@ export default function WhatsAppLead() {
         body: JSON.stringify({
           name: name.trim(),
           phone: phone.trim(),
+          email: email.trim(),
           interest,
           sourceUrl: window.location.href,
         }),
@@ -84,6 +86,8 @@ export default function WhatsAppLead() {
             <input name="nome" required autoFocus value={name} onChange={e=>setName(e.target.value)} placeholder="Como podemos te chamar?" style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:18,fontSize:15,outlineColor:"#e0b04f"}}/>
             <label style={{display:"block",fontSize:13,fontWeight:700,marginBottom:7}}>Seu WhatsApp</label>
             <input name="whatsapp" required type="tel" value={phone} onChange={e=>setPhone(e.target.value)} placeholder="(11) 99999-9999" style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:18,fontSize:15}}/>
+            <label style={{display:"block",fontSize:13,fontWeight:700,marginBottom:7}}>Seu e-mail</label>
+            <input name="email" required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="voce@exemplo.com" style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:18,fontSize:15}}/>
             <label style={{display:"block",fontSize:13,fontWeight:700,marginBottom:7}}>O que você procura?</label>
             <select value={interest} onChange={e=>setInterest(e.target.value)} style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:22,fontSize:15}}>
               <option>Conhecer o Versus CRM</option><option>Ter meu site imobiliário</option><option>Site + CRM</option><option>Agendar uma demonstração</option>
