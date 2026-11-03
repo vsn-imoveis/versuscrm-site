@@ -10,6 +10,7 @@ export default function WhatsAppLead() {
   const [interest, setInterest] = useState("Conhecer o Versus CRM");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const openFromCta = (event: MouseEvent) => {
@@ -58,7 +59,7 @@ export default function WhatsAppLead() {
         throw new Error(result?.error || "Não foi possível registrar seus dados. Tente novamente.");
       }
       closeModal();
-      window.alert("Solicitação enviada com sucesso! Em breve entraremos em contato.");
+      setSuccess(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Falha ao registrar. Tente novamente.");
       setSubmitting(false);
@@ -70,6 +71,17 @@ export default function WhatsAppLead() {
       <a href="#" onClick={e=>{e.preventDefault();openModal()}} aria-label="Fale conosco pelo WhatsApp" title="Fale conosco pelo WhatsApp" style={{position:"fixed",right:22,bottom:22,zIndex:1000,width:60,height:60,borderRadius:"50%",background:"#25D366",boxShadow:"0 5px 22px #0006",display:"flex",alignItems:"center",justifyContent:"center",textDecoration:"none"}}>
         <svg viewBox="0 0 448 512" width="34" height="34" fill="white" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 1.9 131.6 1.9 254c0 39.1 10.2 77.3 29.6 111.1L0 480l118.7-31.2c32.7 17.9 69.5 27.3 105.2 27.3h.1c122.4 0 222-99.6 222-222 0-59.3-23.1-115.1-65.1-157zM224 438.1c-32.9 0-65.2-8.9-93.5-25.7l-6.7-4-70.4 18.5 18.8-68.6-4.4-7.1c-18.6-29.6-28.4-63.8-28.4-97.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.7 19.2 130.6 54.1s54.1 81.3 54.1 130.6c0 101.8-82.8 184.6-184.7 184.6zm101.3-138.2c-5.5-2.8-32.7-16.1-37.8-17.9-5.1-1.9-8.8-2.8-12.5 2.8s-14.4 17.9-17.6 21.6c-3.2 3.7-6.5 4.2-12 1.4s-23.2-8.5-44.2-27.2c-16.3-14.5-27.3-32.4-30.5-37.9s-.3-8.5 2.4-11.3c2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.5-19.4 19-19.4 46.2s19.9 53.6 22.6 57.3c2.8 3.7 39.1 59.7 94.8 83.7 13.2 5.7 23.5 9.1 31.5 11.6 13.2 4.2 25.2 3.6 34.7 2.2 10.6-1.6 32.7-13.4 37.3-26.4 4.6-13 4.6-24.1 3.2-26.4-1.4-2.3-5.1-3.7-10.6-6.5z"/></svg>
       </a>
+      {success && <div onClick={()=>setSuccess(false)} style={{position:"fixed",inset:0,zIndex:1002,background:"rgba(2,8,23,.78)",backdropFilter:"blur(6px)",display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
+        <div role="dialog" aria-modal="true" aria-labelledby="versus-success-title" onClick={e=>e.stopPropagation()} style={{width:"min(100%,440px)",padding:"36px 30px",textAlign:"center",background:"#0b1830",border:"1px solid #263858",borderRadius:22,color:"#f2f4f8",fontFamily:"'Plus Jakarta Sans',Arial,sans-serif",boxShadow:"0 24px 70px #0008"}}>
+          <div style={{width:64,height:64,margin:"0 auto 20px",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(37,211,102,.14)",border:"1px solid rgba(37,211,102,.35)"}}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </div>
+          <div style={{fontSize:11,letterSpacing:".16em",fontWeight:800,color:"#f3cf7a",marginBottom:10}}>VERSUS CRM</div>
+          <h2 id="versus-success-title" style={{fontSize:25,fontWeight:800,margin:"0 0 12px",lineHeight:1.2}}>Solicitação recebida!</h2>
+          <p style={{fontSize:15,color:"#a3afc4",lineHeight:1.6,margin:"0 0 26px"}}>Obrigado pelo seu interesse. Nossa equipe entrará em contato em breve para apresentar o Versus CRM e tirar suas dúvidas.</p>
+          <button type="button" onClick={()=>setSuccess(false)} style={{width:"100%",padding:14,border:0,borderRadius:999,background:"linear-gradient(135deg,#f3cf7a,#e0b04f)",color:"#1a1405",fontSize:15,fontWeight:800,cursor:"pointer"}}>Entendi</button>
+        </div>
+      </div>}
       {open && <div className="versus-lead-overlay" onClick={closeModal} style={{position:"fixed",inset:0,zIndex:1001,background:"rgba(2,8,23,.78)",backdropFilter:"blur(5px)",display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
         <div role="dialog" aria-modal="true" aria-labelledby="versus-lead-title" onClick={e=>e.stopPropagation()} style={{width:"min(100%,480px)",background:"#0b1830",border:"1px solid #263858",borderRadius:20,overflow:"hidden",color:"#f2f4f8",fontFamily:"'Plus Jakarta Sans',Arial,sans-serif",boxShadow:"0 24px 70px #0008"}}>
           <div style={{padding:"26px 26px 20px",borderBottom:"1px solid #1d2c4a",position:"relative"}}>
