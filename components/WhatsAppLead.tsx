@@ -7,6 +7,8 @@ export default function WhatsAppLead() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [interest, setInterest] = useState("Conhecer o Versus CRM");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   function openModal() {
     setOpen(true);
@@ -16,12 +18,37 @@ export default function WhatsAppLead() {
     setOpen(false);
     document.body.style.overflow = "";
   }
-  function submit(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    setError("");
+
     const message = `Olá! Meu nome é ${name}. Meu WhatsApp é ${phone}. Tenho interesse em: ${interest}. Quero saber mais sobre o Versus CRM.`;
-    const url = `https://wa.me/5511974116234?text=${encodeURIComponent(message)}`;
-    window.location.href = url;
-    closeModal();
+    const whatsappUrl = `https://wa.me/5511974116234?text=${encodeURIComponent(message)}`;
+
+    try {
+      const response = await fetch("https://versuscrm.vercel.app/api/public-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: phone.trim(),
+          interest,
+          sourceUrl: window.location.href,
+        }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result?.success !== true) {
+        throw new Error(result?.error || "Não foi possível registrar seus dados. Tente novamente.");
+      }
+      // Abre o WhatsApp somente depois de confirmar que o lead foi salvo no CRM.
+      window.location.href = whatsappUrl;
+      closeModal();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Falha ao registrar. Tente novamente.");
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -46,7 +73,8 @@ export default function WhatsAppLead() {
             <select value={interest} onChange={e=>setInterest(e.target.value)} style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:22,fontSize:15}}>
               <option>Conhecer o Versus CRM</option><option>Ter meu site imobiliário</option><option>Site + CRM</option><option>Agendar uma demonstração</option>
             </select>
-            <button type="submit" style={{width:"100%",padding:15,border:0,borderRadius:999,background:"linear-gradient(135deg,#f3cf7a,#e0b04f)",color:"#1a1405",fontSize:15,fontWeight:800,cursor:"pointer"}}>Continuar para o WhatsApp</button>
+            {error && <p role="alert" style={{fontSize:13,color:"#ff9b9b",margin:"0 0 14px",textAlign:"center"}}>{error}</p>}
+            <button type="submit" disabled={submitting} style={{width:"100%",padding:15,border:0,borderRadius:999,background:submitting?"#8a7849":"linear-gradient(135deg,#f3cf7a,#e0b04f)",color:"#1a1405",fontSize:15,fontWeight:800,cursor:submitting?"wait":"pointer",opacity:submitting?0.75:1}}>{submitting?"Registrando seus dados...":"Continuar para o WhatsApp"}</button>
             <p style={{fontSize:11,color:"#78869e",textAlign:"center",margin:"12px 0 0"}}>Seus dados serão usados para dar continuidade ao atendimento.</p>
           </form>
         </div>
