@@ -65,9 +65,10 @@ export default function WhatsAppLead() {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || result?.success !== true) {
-        throw new Error(result?.error || "Não foi possível registrar seus dados. Tente novamente.");
+        throw new Error(result?.error || "Não foi possível enviar sua solicitação. Tente novamente.");
       }
       closeModal();
+      setSubmitting(false);
       setSuccess(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Falha ao registrar. Tente novamente.");
