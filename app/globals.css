@@ -39,7 +39,7 @@
 @media(max-width:600px){.nav .brand{font-size:25px}.nav .brand .brand-mark{font-size:43px}.nav .brand .brand-word{font-size:25px}.nav .brand .brand-word span{font-size:10px}}
 
 /* Complete landing redesign: visual identity inspired by premium VSN website */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
+/* Cormorant Garamond já é carregada no import principal de fontes. */
 :root{--ink:#082432;--muted:#657681;--purple:#c9a257;--lav:#f7f3eb;--line:#e7e2d8}
 body{color:#082432;background:#fff}
 .nav{height:94px;border-bottom:1px solid #e9e5dc}
