@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "Googlebot", allow: "/" },
     ],
-    sitemap: "https://versuscrm.com.br/sitemap.xml",
-    host: "https://versuscrm.com.br",
+    sitemap: "https://www.versuscrm.com.br/sitemap.xml",
+    host: "https://www.versuscrm.com.br",
   };
 }
