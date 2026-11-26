@@ -69,7 +69,19 @@ export default function WhatsAppLead() {
       }
       closeModal();
       setSubmitting(false);
-      setSuccess(true);
+
+      const whatsappNumber = "5511974116234";
+      const whatsappText = [
+        "Olá! Recebi uma solicitação pelo site Versus CRM.",
+        "",
+        "Nome: " + name.trim(),
+        "WhatsApp: " + phone.trim(),
+        "E-mail: " + email.trim(),
+        "Interesse: " + interest,
+        "Mensagem: " + message.trim(),
+      ].join("\\n");
+
+      window.location.assign("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(whatsappText));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Falha ao registrar. Tente novamente.");
       setSubmitting(false);
