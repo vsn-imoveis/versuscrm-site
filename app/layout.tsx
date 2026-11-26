@@ -51,6 +51,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body>
         {children}
         <nav aria-label="Páginas do Versus CRM" style={{ background: "#041925", color: "#f7f4ee", borderTop: "1px solid #203746", padding: "18px 5vw", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px 24px", fontSize: 13 }}>
