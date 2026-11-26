@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 
-const siteUrl = "https://www.versuscrm.com.br";
+const siteUrl = "https://versuscrm.com.br";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
