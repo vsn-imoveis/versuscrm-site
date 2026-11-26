@@ -71,15 +71,9 @@ export default function WhatsAppLead() {
       setSubmitting(false);
 
       const whatsappNumber = "5511974116234";
-      const whatsappText = [
-        "Olá! Recebi uma solicitação pelo site Versus CRM.",
-        "",
-        "Nome: " + name.trim(),
-        "WhatsApp: " + phone.trim(),
-        "E-mail: " + email.trim(),
-        "Interesse: " + interest,
-        "Mensagem: " + message.trim(),
-      ].join("\\n");
+      const whatsappText = interest.startsWith("Plano ")
+        ? "Olá! Tenho interesse no " + interest + "."
+        : "Olá! Tenho interesse em conhecer o Versus CRM.";
 
       window.location.assign("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(whatsappText));
     } catch (err) {
