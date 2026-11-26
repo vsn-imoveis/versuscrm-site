@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://www.versuscrm.com.br";
+const siteUrl = "https://versuscrm.com.br";
 
 const pages = [
   "",
