@@ -8,6 +8,7 @@ export default function WhatsAppLead() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [interest, setInterest] = useState("Conhecer o Versus CRM");
+  const [message, setMessage] = useState("Quero conhecer o Versus CRM.");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -17,7 +18,14 @@ export default function WhatsAppLead() {
       const target = event.target as HTMLElement | null;
       const anchor = target?.closest("a");
       const label = anchor?.textContent?.trim().toLocaleLowerCase("pt-BR");
-      if (label && ["quero o meu", "solicitar demonstração", "falar no whatsapp"].includes(label)) {
+      const plan = anchor?.getAttribute("data-subscribe");
+      if (plan) {
+        event.preventDefault();
+        setInterest("Plano " + plan);
+        setMessage("Quero adquirir o plano " + plan + ".");
+        setOpen(true);
+        document.body.style.overflow = "hidden";
+      } else if (label && ["quero o meu", "solicitar demonstração", "falar no whatsapp"].includes(label)) {
         event.preventDefault();
         setOpen(true);
         document.body.style.overflow = "hidden";
@@ -51,6 +59,7 @@ export default function WhatsAppLead() {
           phone: phone.trim(),
           email: email.trim(),
           interest,
+          message: message.trim(),
           sourceUrl: window.location.href,
         }),
       });
@@ -88,7 +97,7 @@ export default function WhatsAppLead() {
             <button type="button" onClick={closeModal} aria-label="Fechar" style={{position:"absolute",right:18,top:14,background:"transparent",border:0,color:"#a3afc4",fontSize:28,cursor:"pointer"}}>×</button>
             <div style={{fontSize:11,letterSpacing:".16em",fontWeight:800,color:"#f3cf7a",marginBottom:8}}>VERSUS CRM</div>
             <h2 id="versus-lead-title" style={{fontSize:24,fontWeight:800,margin:"0 28px 8px 0",lineHeight:1.2}}>Vamos conversar?</h2>
-            <p style={{fontSize:14,color:"#a3afc4",margin:0}}>Deixe seus dados para continuar o atendimento pelo WhatsApp.</p>
+            <p style={{fontSize:14,color:"#a3afc4",margin:0}}>Preencha seus dados e nossa equipe receberá sua solicitação.</p>
           </div>
           <form onSubmit={submit} style={{padding:26}}>
             <label style={{display:"block",fontSize:13,fontWeight:700,marginBottom:7}}>Nome completo</label>
@@ -97,12 +106,10 @@ export default function WhatsAppLead() {
             <input name="whatsapp" required type="tel" value={phone} onChange={e=>setPhone(e.target.value)} placeholder="(11) 99999-9999" style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:18,fontSize:15}}/>
             <label style={{display:"block",fontSize:13,fontWeight:700,marginBottom:7}}>Seu e-mail</label>
             <input name="email" required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value.trim())} placeholder="voce@exemplo.com" style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:18,fontSize:15}}/>
-            <label style={{display:"block",fontSize:13,fontWeight:700,marginBottom:7}}>O que você procura?</label>
-            <select value={interest} onChange={e=>setInterest(e.target.value)} style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:22,fontSize:15}}>
-              <option>Conhecer o Versus CRM</option><option>Ter meu site imobiliário</option><option>Site + CRM</option><option>Agendar uma demonstração</option>
-            </select>
+            <label style={{display:"block",fontSize:13,fontWeight:700,marginBottom:7}}>Mensagem</label>
+            <textarea name="message" required rows={3} value={message} onChange={e=>setMessage(e.target.value)} style={{width:"100%",padding:13,borderRadius:9,border:"1px solid #344564",background:"#050d1c",color:"#f2f4f8",marginBottom:22,fontSize:15,resize:"vertical",fontFamily:"inherit"}}/>
             {error && <p role="alert" style={{fontSize:13,color:"#ff9b9b",margin:"0 0 14px",textAlign:"center"}}>{error}</p>}
-            <button type="submit" disabled={submitting} style={{width:"100%",padding:15,border:0,borderRadius:999,background:submitting?"#8a7849":"linear-gradient(135deg,#f3cf7a,#e0b04f)",color:"#1a1405",fontSize:15,fontWeight:800,cursor:submitting?"wait":"pointer",opacity:submitting?0.75:1}}>{submitting?"Registrando seus dados...":"Continuar para o WhatsApp"}</button>
+            <button type="submit" disabled={submitting} style={{width:"100%",padding:15,border:0,borderRadius:999,background:submitting?"#8a7849":"linear-gradient(135deg,#f3cf7a,#e0b04f)",color:"#1a1405",fontSize:15,fontWeight:800,cursor:submitting?"wait":"pointer",opacity:submitting?0.75:1}}>{submitting?"Registrando seus dados...":"Enviar solicitação"}</button>
             <p style={{fontSize:11,color:"#78869e",textAlign:"center",margin:"12px 0 0"}}>Seus dados serão usados para dar continuidade ao atendimento.</p>
           </form>
         </div>
